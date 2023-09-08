@@ -21,15 +21,18 @@ main{
     overflow: hidden;  
 }
 ul{
+    list-style-type: none;
     position: absolute;
     bottom: 40px;
     width: 92%;
     max-height: 90%;
     overflow-y: auto;
-    /* margin-left: 0;  */
-    padding:1.5%;
+    /* margin-left: 0;   */
+     padding:.5%; 
 }    
-
+li{
+    list-style-type: none;
+}
 input{
     position: absolute;
     bottom: 0;     
@@ -53,9 +56,14 @@ button{
 
 @media only screen and (max-width: 1050px) {
 
-button {
-    width: 20%;
-    margin-right: 10px;
-}
+    ul{
+        padding:1%;
+    }
+
+    button {
+        width: 20%;
+        margin-right: 10px;
+    }
+
 
 }
