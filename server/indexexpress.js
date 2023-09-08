@@ -14,17 +14,16 @@ const io = socketIo(server, {
  app.get('/', (req, res) => {
      res.sendFile(path.join(__dirname, '../app/index.html'));
 });
-// Serve static JavaScript files from the 'app' folder
- app.use('/static', express.static(path.join(__dirname, '../app')));
 
 // Serve the app.js file
 app.get('/app.js', (req, res) => {
     res.sendFile(path.join(__dirname, '../app/app.js'));
 });
 
-// Serve static CSS files from the 'css' folder
-app.use('/static/css', express.static(path.join(__dirname, 'css')));
-
+// Serve the stylesheet.css 
+app.get('/stylesheet.css', (req, res) => {
+    res.sendFile(path.join(__dirname, '../app/css/stylesheet.css'));
+});
 
 io.on('connection', (socket) => {
     console.log('a user connected');
