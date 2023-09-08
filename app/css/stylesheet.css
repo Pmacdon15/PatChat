@@ -1,4 +1,7 @@
-html {height: 100%;}
+html {
+    height: 100%;
+    /* overflow: hidden; */
+}
 body{
     height: 100%;
     background-color: rgb(10, 120, 237);
@@ -6,6 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     align-items: center;
+    overflow: hidden;
 }
 main{
     background-color: white;
@@ -14,7 +18,7 @@ main{
     padding: 10px; 
     border-radius: 10px;
     position: relative; 
-    /* overflow: scroll; */
+    overflow: hidden;  
 }
 ul{
     position: absolute;
@@ -22,7 +26,8 @@ ul{
     width: 92%;
     max-height: 90%;
     overflow-y: auto;
-    margin-left: 0; 
+    /* margin-left: 0;  */
+    padding:1.5%;
 }    
 
 input{

@@ -1,6 +1,6 @@
 
-const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not local)
-//const socket = io("ws://localhost:3000");      // When hosting locally
+//const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not local)
+const socket = io("ws://localhost:3000");      // When hosting locally
 let userName =""; 
 
 window.onload = function () {
