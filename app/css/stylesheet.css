@@ -20,7 +20,7 @@ main{
     position: relative; 
     overflow: hidden;  
 }
-ul{
+#messages{
     list-style-type: none;
     position: absolute;
     bottom: 40px;

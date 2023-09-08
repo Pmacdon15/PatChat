@@ -9,6 +9,7 @@ const io = socketIo(server, {
     cors: { origin: "*" }
 });
 
+let connectedUsers = {}; // Define connectedUsers globally
 
 // Serve the static HTML file
  app.get('/', (req, res) => {
@@ -33,6 +34,15 @@ io.on('connection', (socket) => {
         console.log(`${userName} joined`);
         socket.userName = userName; // Store the userName with the socket
         io.emit('message', `${userName} joined`);
+        // Emit the 'userList' event with the updated user list
+        // io.emit('userList', `${userName}`);
+        console.log(connectedUsers);
+       
+        // Emit the 'userList' event with the updated user list
+        connectedUsers[socket.id] = userName; // Add the user to connectedUsers
+        io.emit('userList', Object.values(connectedUsers));
+        
+        console.log("after " + connectedUsers);
     });
 
     socket.on('message', (message) => {
@@ -45,6 +55,22 @@ io.on('connection', (socket) => {
             io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
         }
     });
+    
+    // Handle user disconnecting
+    socket.on('disconnect', () => {
+        const userName = socket.userName || socket.id;
+        // Remove the user from the connectedUsers object
+        delete connectedUsers[socket.id];
+
+        // Emit the 'userList' event with the updated user list
+        io.emit('userList', Object.values(connectedUsers));
+        
+        io.emit('message', `${userName} left the chat`);
+
+        console.log(`${userName} left the chat`);
+        }
+    );
+
 });
 
 // io.on('connection', (socket) => {

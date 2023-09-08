@@ -1,13 +1,12 @@
 
-const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not local)
-//const socket = io("ws://localhost:3000");      // When hosting locally
+//const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not local)
+const socket = io("ws://localhost:3000");      // When hosting locally
 let userName =""; 
 
 window.onload = function () {
     userName = window.prompt("Please enter your name:");
     if (userName) {
         //alert(`Hello, ${userName}!`);
-
         // Send the user's name to the server
         socket.emit('join', userName);
     } else {
@@ -33,7 +32,27 @@ socket.on('message', text => {
     scrollToBottom();
 });
 
+socket.on('userList', userList => {
+    const usersList = document.getElementById('users'); // Select the ul element with id "users"
+    console.log('Received userList:', userList); // Log the received data
+    // Clear the existing user list
+    usersList.innerHTML = '';
+    
+    // Add <h2>Online users:</h2> to the top of the list
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Online users:';
+    usersList.appendChild(h2);
 
+    // Append each user to the "users" ul element as list items
+    userList.forEach((userName) => {
+        const userItem = document.createElement('li');
+        console.log(userName); // this isnt being outputted
+        userItem.textContent = userName; // Use textContent to set the username
+        usersList.appendChild(userItem);
+    });
+});
+
+// On button click, send message to server
 document.querySelector('button').addEventListener('click', () => {
     const text = document.querySelector('input').value;
     socket.emit('message', text);
@@ -41,7 +60,6 @@ document.querySelector('button').addEventListener('click', () => {
 });
 
 
-// testing 
 // Function to scroll to the bottom of the <ul>
 function scrollToBottom() {
     const messageList = document.querySelector('ul');
