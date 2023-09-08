@@ -9,9 +9,7 @@ const io = socketIo(server, {
     cors: { origin: "*" }
 });
 
-//  app.get('/', (req, res) => {
-//      res.send('Hello World!');
-//  });
+
 // Serve the static HTML file
  app.get('/', (req, res) => {
      res.sendFile(path.join(__dirname, '../app/index.html'));
@@ -27,11 +25,32 @@ app.get('/app.js', (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
+    // Listen for the 'join' event and store the userName with the socket
+    socket.on('join', (userName) => {
+        console.log(`${userName} joined`);
+        socket.userName = userName; // Store the userName with the socket
+    });
+
     socket.on('message', (message) => {
-        console.log(message);
-        io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
+        console.log(socket.userName +" said "+ message);
+
+        // Use socket.userName to include the user's name in the message
+        if (socket.userName) {
+            io.emit('message', `${socket.userName} said: ${message}`);
+        } else {
+            io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
+        }
     });
 });
+
+// io.on('connection', (socket) => {
+//     console.log('a user connected');
+
+//     socket.on('message', (message) => {
+//         console.log(message);
+//         io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
+//     });
+// });
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
