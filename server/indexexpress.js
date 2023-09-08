@@ -22,6 +22,10 @@ app.get('/app.js', (req, res) => {
     res.sendFile(path.join(__dirname, '../app/app.js'));
 });
 
+// Serve static CSS files from the 'css' folder
+app.use('/static/css', express.static(path.join(__dirname, 'css')));
+
+
 io.on('connection', (socket) => {
     console.log('a user connected');
 
