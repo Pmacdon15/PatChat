@@ -1,5 +1,5 @@
 
-const socket = io("ws://localhost:3000");
+const socket = io("ws://96.51.136.132:3000");
 
 socket.on('message', text => {
     const el = document.createElement('li');
