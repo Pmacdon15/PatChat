@@ -32,6 +32,7 @@ io.on('connection', (socket) => {
     socket.on('join', (userName) => {
         console.log(`${userName} joined`);
         socket.userName = userName; // Store the userName with the socket
+        io.emit('message', `${userName} joined`);
     });
 
     socket.on('message', (message) => {

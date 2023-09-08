@@ -6,7 +6,7 @@ let userName ="";
 window.onload = function () {
     userName = window.prompt("Please enter your name:");
     if (userName) {
-        alert(`Hello, ${userName}!`);
+        //alert(`Hello, ${userName}!`);
 
         // Send the user's name to the server
         socket.emit('join', userName);
