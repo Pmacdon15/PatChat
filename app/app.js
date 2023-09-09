@@ -4,15 +4,16 @@ const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not lo
 let userName =""; 
 
 window.onload = function () {
-    //testing
-    Notification.requestPermission().then((perm) => {
-        if (perm === 'granted') {
-          console.log('Notification permission granted.');
-        } else {
-          console.log('Notification permission denied or dismissed.');
-        }
-      });
-    //testing
+    // todo You Need work on getting an ssl cert becuase notifactions 
+    // todo are blocked
+    // Notification.requestPermission().then((perm) => {
+    //     if (perm === 'granted') {
+    //       console.log('Notification permission granted.');
+    //     } else {
+    //       console.log('Notification permission denied or dismissed.');
+    //     }
+    //   });
+    
     userName = window.prompt("Please enter your name:");
     if (userName) {        
         socket.emit('join', userName);
@@ -33,13 +34,15 @@ window.onload = function () {
 };
     
 socket.on('message', text => {
-    const words = text.split(' '); // Split the text into an array of words
-    const firstWord = words[0]; // Get the first word from the array
-    console.log('First word:', firstWord);
-    console.log (userName) 
-    if (firstWord != userName) {
-        new Notification("New Message", {body: text});
-    }
+    // todo You Need work on getting an ssl cert becuase notifactions
+    // const words = text.split(' '); // Split the text into an array of words
+    // const firstWord = words[0]; // Get the first word from the array
+    // console.log('First word:', firstWord);
+    // console.log (userName) 
+    // if (firstWord != userName) {
+    //     new Notification("New Message", {body: text});
+    // }
+
     const el = document.createElement('li');
     el.innerHTML = text;
     document.querySelector('ul').appendChild(el);
