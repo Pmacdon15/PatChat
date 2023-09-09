@@ -54,7 +54,8 @@ io.on('connection', (socket) => {
         } else {
             io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
         }
-    });
+        
+    });    
     
     // Handle user disconnecting
     socket.on('disconnect', () => {
@@ -86,3 +87,4 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
