@@ -40,13 +40,13 @@ socket.on('userList', userList => {
     
     // Add <h2>Online users:</h2> to the top of the list
     const h2 = document.createElement('h2');
-    h2.textContent = 'Online users:';
+    h2.textContent = 'Online Users';
     usersList.appendChild(h2);
 
     // Append each user to the "users" ul element as list items
     userList.forEach((userName) => {
         const userItem = document.createElement('li');
-        console.log(userName); // this isnt being outputted
+        console.log(userName); 
         userItem.textContent = userName; // Use textContent to set the username
         usersList.appendChild(userItem);
     });

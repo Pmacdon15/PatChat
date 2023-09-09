@@ -12,6 +12,11 @@ body{
     overflow: hidden;
 }
 main{
+    width: 100%;
+    height: 100%;
+}
+section{
+    margin-top: 2%;
     background-color: white;
     width: 80%;
     height: 75%;    
@@ -20,11 +25,14 @@ main{
     position: relative; 
     overflow: hidden;  
 }
+main section:nth-child(2) {
+    margin-right: .5%;
+}
 #messages{
     list-style-type: none;
     position: absolute;
     bottom: 40px;
-    width: 92%;
+    width: 85%;
     max-height: 90%;
     overflow-y: auto;
     /* margin-left: 0;   */
