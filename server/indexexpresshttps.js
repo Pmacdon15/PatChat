@@ -1,10 +1,10 @@
 
 const https = require('https');
 const socketIo = require('socket.io');
-
+const fs = require('fs');
 const options = {
-    key: fs.readFileSync('./server/certs/privkey.pem'),
-    cert: fs.readFileSync('./server/certs/fullchain.pem'),
+    key: fs.readFileSync('./certs/privkey.pem'),
+    cert: fs.readFileSync('./certs/fullchain.pem'),
 };
 
   
@@ -13,6 +13,7 @@ const app = express();
 
 
 const path = require('path');
+const server = https.createServer(options,app);
 const io = socketIo(server, {
     cors: { origin: "*" }
 });
@@ -81,10 +82,8 @@ io.on('connection', (socket) => {
 
 });
 
-const server = https.createServer(options,app);
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+
+server.listen(3000, '0.0.0.0', () => {
+    console.log(`Server is running on http://localhost:3000`);
 });
-
