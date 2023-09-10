@@ -1,10 +1,18 @@
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
-const path = require('path');
 
+const https = require('https');
+const socketIo = require('socket.io');
+
+const options = {
+    key: fs.readFileSync('./server/certs/privkey.pem'),
+    cert: fs.readFileSync('./server/certs/fullchain.pem'),
+};
+
+  
+const express = require('express');
 const app = express();
-const server = http.createServer(app);
+
+
+const path = require('path');
 const io = socketIo(server, {
     cors: { origin: "*" }
 });
@@ -34,15 +42,14 @@ io.on('connection', (socket) => {
         console.log(`${userName} joined`);
         socket.userName = userName; // Store the userName with the socket
         io.emit('message', `${userName} joined`);
-        // Emit the 'userList' event with the updated user list
-        // io.emit('userList', `${userName}`);
-        console.log(connectedUsers);
+        
+        console.log("connected users b4: "+ connectedUsers);
        
         // Emit the 'userList' event with the updated user list
         connectedUsers[socket.id] = userName; // Add the user to connectedUsers
         io.emit('userList', Object.values(connectedUsers));
         
-        console.log("after " + connectedUsers);
+        console.log("connected users after " + connectedUsers);
     });
 
     socket.on('message', (message) => {
@@ -74,14 +81,7 @@ io.on('connection', (socket) => {
 
 });
 
-// io.on('connection', (socket) => {
-//     console.log('a user connected');
-
-//     socket.on('message', (message) => {
-//         console.log(message);
-//         io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
-//     });
-// });
+const server = https.createServer(options,app);
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {

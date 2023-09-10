@@ -1,4 +1,6 @@
-const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not local)
+const socket = io("https://patchat.ca");
+
+//const socket = io("ws://96.51.136.132:3000");  // When hosting on server (not local)
 //const socket = io("ws://localhost:3000");      // When hosting locally
 let userName =""; 
 
@@ -33,15 +35,7 @@ window.onload = function () {
 };
     
 socket.on('message', text => {
-    // todo You Need work on getting an ssl cert becuase notifactions
-    // const words = text.split(' '); // Split the text into an array of words
-    // const firstWord = words[0]; // Get the first word from the array
-    // console.log('First word:', firstWord);
-    // console.log (userName) 
-    // if (firstWord != userName) {
-    //     new Notification("New Message", {body: text});
-    // }
-
+    
     const el = document.createElement('li');
     el.innerHTML = text;
     document.querySelector('ul').appendChild(el);
