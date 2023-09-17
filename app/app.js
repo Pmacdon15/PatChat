@@ -6,7 +6,7 @@ const socket = io("wss://www.patchat.ca");
 let userName =""; 
 
 window.onload = function () {
-    // todo You Need work on getting an ssl cert becuase notifactions 
+    // todo You Need work on getting an ssl cert because notifications 
     // todo are blocked
     // Notification.requestPermission().then((perm) => {
     //     if (perm === 'granted') {
