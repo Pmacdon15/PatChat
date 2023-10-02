@@ -72,15 +72,6 @@ io.on("connection", (socket) => {
   });
 });
 
-// io.on('connection', (socket) => {
-//     console.log('a user connected');
-
-//     socket.on('message', (message) => {
-//         console.log(message);
-//         io.emit('message', `${socket.id.substr(0, 2)} said ${message}`);
-//     });
-// });
-
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
