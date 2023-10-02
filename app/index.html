@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PatChat</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../stylesheet.css">             
-        <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
-        <!-- <script src="http://cdn.socket.io/socket.io-3.0.0.js"></script> -->
-        <script defer src="app.js"></script>
-    </head>
+  <head>
+    <title>PatChat</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../stylesheet.css" />
+    <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
+    <!-- <script src="http://cdn.socket.io/socket.io-3.0.0.js"></script> -->
+    <script defer src="app.js"></script>
+  </head>
 
-    <body>
-        
-    <main>        
-        <section>
-            <ul id="messages">
+  <body>
+    <main>
+      <section>
+        <ul id="messages"></ul>
 
-            </ul>     
-
-            <input id="message" placeholder="Message">
-            <button id="send">Send</button>
-        </section>
-        <section>
-            <ul id="users" >
-                <h2>Online Users</h2>
-                <!-- <il>
+        <input id="message" placeholder="Message" />
+        <button id="send">Send</button>
+      </section>
+      <section>
+        <ul id="users">
+          <h2>Online Users</h2>
+          <!-- <il>
                     patrick
                 </il> -->
-            </ul> 
-        </section>
+        </ul>
+      </section>
     </main>
-    </body>
+  </body>
 </html>
