@@ -44,7 +44,7 @@ and change the script being called on index.html src="https://cdn.socket.io/sock
 
 ```url 
 
-src="http://cdn.socket.io/socket.io-3.0.0.js">
+src="http://cdn.socket.io/socket.io-3.0.0.js"
 
 ```
 
