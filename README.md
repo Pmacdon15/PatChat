@@ -11,18 +11,47 @@ This is a Node.js project that uses Express and Socket.IO to create a real-time 
   
 ## Installation
 
-Clone the repository: git clone https://github.com/Pmacdon15/PatChat.git
-Install the dependencies: npm install express, npm install socket.io, npm install express http
+Clone the repository: 
+
+Enter This in the the terminal in the directory you want to clone the repository:
+
+```bash
+
+git clone https://github.com/Pmacdon15/PatChat.git
+
+```
 
 ## Usage
 
-Start the server from the server directory: node indexexpress.js
-Open your web browser and navigate to https://localhost:3000
-Enter your name and start chatting!
-Note: This project is set up as an HTTP server, but the configuration is designed to run through Apache, which holds the SSL certificate and forwards the traffic through port 443 to port 3001.
+Change the  Ip addresses to you public Ip Address or localhost, on app.js  to
 
-## HTTPS?
 
-This project is currently designed to work with HTTPS hosted on Apache server, However on start up because of my configuration and being that it is an http server, it will cause a console error, just once at the start of webpage load. The site will work fine. Because this is an originally an HTTP server if you Change all references to WS or HTTP, change this const socket = io("wss://www.patchat.ca"); to //const socket = io("ws://<public-ip>:3001");  // When hosting on server (not local) //const socket = io("ws://localhost:3001");  // When hosting locally(Including the script reference on the html page), this will remove the console error on start up. at which point you can set up your own method for hosting.
+``` javaScript
+
+const socket = io("wss://www.patchat.ca"); to const socket = io("ws://<publicIp>:3001"); 
+
+```
+
+or 
+
+``` javaScript
+
+const socket = io("ws://localhost:3001");
+
+```
+Start the server in the terminal from the server directory:
+
+```bash
+node indexexpress.js
+```
+
+Open your web browser and navigate to:
+```url
+
+https://localhost:3000 Enter your name and start chatting!
+
+```
+
+Note: This project is set up as an HTTP server, but the configuration is designed to run through Apache, which holds the SSL certificate and forwards the traffic through port 443 to port 3001 which causes a service missmatch. If this project is set up as an http using the above steps there should be no error on the console when connecting to the site.
 
 Let me know if you need any further assistance!
