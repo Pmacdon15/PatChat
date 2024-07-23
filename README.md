@@ -67,6 +67,6 @@ https://localhost:3000
 Enter your name and start chatting!
 
 ## Note 
-This project is set up as an HTTP server, but the configuration is designed to run through Apache, which holds the SSL certificate and forwards the traffic through port 443 to port 3001 as an HTTPserver which causes a service mismatch. If this project is set up as an http using the above steps there will be no console error when connecting to the site.
+This project is set up as an HTTP server, but the configuration is designed to run through Apache, which holds the SSL certificate and forwards the traffic through port 443 to port 3001 as an HTTPS server which causes a service mismatch. If this project is set up as an http using the above steps there will be no console error when connecting to the site.
 
 Let me know if you need any further assistance!
