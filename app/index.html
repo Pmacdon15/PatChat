@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PatChat</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../stylesheet.css" />
-    <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
-    <!-- <script src="http://cdn.socket.io/socket.io-3.0.0.js"></script> -->
-    <script defer src="app.js"></script>
-  </head>
 
-  <body>
-    <main>
-      <section>
+<head>
+  <title>PatChat</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../stylesheet.css" />
+  <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
+  <!-- <script src="http://cdn.socket.io/socket.io-3.0.0.js"></script> -->
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <main>
+    <section class="header">
+      <h1>PatChat</h1>
+    </section>
+    <div class="container">
+      <section class="chat">
         <ul id="messages"></ul>
-
         <input id="message" placeholder="Message" />
         <button id="send">Send</button>
       </section>
-      <section>
+      <section class="users">
         <ul id="users">
           <h2>Online Users</h2>
           <!-- <il>
@@ -26,6 +30,8 @@
                 </il> -->
         </ul>
       </section>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
