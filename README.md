@@ -52,7 +52,7 @@ Start the server in the terminal from the server directory:
 
 ```bash
 
-node indexexpress.js
+node server.js
 
 ```
 
