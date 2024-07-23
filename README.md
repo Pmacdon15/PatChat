@@ -28,7 +28,7 @@ Change the  Ip addresses to you public Ip Address or localhost, on app.js  to
 
 ``` javaScript
 
-const socket = io("wss://www.patchat.ca"); to const socket = io("ws://<publicIp>:3001"); 
+const socket = io("wss://www.patchat.ca"); to const socket = io("ws://<publicIpOrDomainName>:3001"); 
 
 ```
 
